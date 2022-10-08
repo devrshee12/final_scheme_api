@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 require("dotenv").config();
-const port = 3030 || process.env.PORT;
+const PORT = process.env.PORT || 3030;
 const connectDB = require("./db/connect")
 const schemes = require("./routes/schemes");
 const cors = require("cors");
@@ -30,8 +30,8 @@ const url = "mongodb+srv://devarshee:devarshee@cluster0.c6f8h6h.mongodb.net/yojn
 const start = async () => {
     try {
         await connectDB(url);
-        app.listen(port, ()=>{
-            console.log(`server is listening on port ${port}`);
+        app.listen(PORT, ()=>{
+            console.log(`server is listening on PORT ${PORT}`);
         })
     } catch (err) {
         console.log(err);
